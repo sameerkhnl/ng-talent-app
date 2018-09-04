@@ -9,6 +9,11 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { FeatureComponent } from './feature/feature.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {AppRoutingModule} from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
+import { SignInComponent } from './sign-in/sign-in.component';
+import {AuthService} from './_services/auth.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AuthGuard} from './_guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -17,14 +22,18 @@ import {AppRoutingModule} from './app-routing.module';
     HomeComponent,
     AboutUsComponent,
     FeatureComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
