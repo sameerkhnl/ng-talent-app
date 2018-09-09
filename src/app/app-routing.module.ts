@@ -5,9 +5,11 @@ import {AboutUsComponent} from './about-us/about-us.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HomeComponent} from './home/home.component';
 import {AuthGuard} from './_guards/auth.guard';
+import {SettingsComponent} from './settings/settings.component';
 
 const appRoutes: Routes = [
-  {path: ':userShortCode/welcome', component: HomeComponent},
+  {path: ':userShortCode/home', component: HomeComponent},
+  {path: ':userShortCode/setup', component: SettingsComponent},
   {path: 'features', component: FeatureComponent},
   {path: 'aboutus', component: AboutUsComponent},
   {path: '**', component: PageNotFoundComponent}

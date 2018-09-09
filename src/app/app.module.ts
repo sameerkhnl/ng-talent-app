@@ -9,11 +9,13 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { FeatureComponent } from './feature/feature.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {AppRoutingModule} from './app-routing.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthService} from './_services/auth.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthGuard} from './_guards/auth.guard';
 import {AppService} from './_services/app.service';
+import { SettingsComponent } from './settings/settings.component';
+import {RequestInterceptor} from './_helpers/RequestInterceptor';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import {AppService} from './_services/app.service';
     AboutUsComponent,
     FeatureComponent,
     PageNotFoundComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import {AppService} from './_services/app.service';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [AuthService, AuthGuard, AppService],
+  providers: [AuthService, AuthGuard, AppService, {provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

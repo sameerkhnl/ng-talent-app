@@ -1,5 +1,5 @@
 export class AppStatusModel {
-  constructor(landingPage: string, settingsPage: string, setupRequired: string, domainsUsed: string) {
+  constructor(public landingPage: string, public settingsPage: string, public setupRequired: string, public domainsUsed: string) {
 
   }
 }

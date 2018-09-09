@@ -1,5 +1,5 @@
 export class CustomerModel {
-  constructor(id: Number, name: string, contactEmail: string, shortCode: string, type: Type, country: Country, timeZone: number, logoUrl: string, privacyPolicyUrl: string, active: boolean, createdOn: Date, updatedOn: Date) {
+  constructor(public id: Number, name: string, public contactEmail: string, public shortCode: string, public type: Type, public country: Country, public timeZone: number, public logoUrl: string, public privacyPolicyUrl: string, public active: boolean, public createdOn: Date, public updatedOn: Date) {
 
   }
 }
