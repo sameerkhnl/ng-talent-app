@@ -20,13 +20,10 @@ export class AppService {
     return this.http.get<CustomerModel>(this.baseUrl + shortCode);
   }
 
-  getAppStatus(shortCode: string): Observable<AppStatusModel>{
-    return this.http.get<AppStatusModel>(this.appStatusUrl + shortCode + "/devs/sameerkhnl/appStatus");
-  }
-
-  updateCustomerAppStatus() {
+  updateCustomerAppStatus(shortCode: string) {
     let data = new HttpParams();
+    //console.log(this.customers[0]);
     data.append("setupRequired", 'false');
-    return this.http.get<AppStatusModel>(this.appStatusUrl + this.customers[0].shortCode + "/devs/sameerkhnl/appStatus?setupRequired=false");
+    return this.http.get<AppStatusModel>(this.appStatusUrl + shortCode + "/devs/sameerkhnl/appStatus?setupRequired=false");
   }
 }

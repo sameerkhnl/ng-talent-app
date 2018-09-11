@@ -21,16 +21,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.appService.getAppStatus(this.shortCode).subscribe(appStatus => {
-      console.log(appStatus);
-      this.appStatus = appStatus;
-      this.appService.appStatus[0] = appStatus;
-      if(this.appStatus.setupRequired){
-        this.router.navigate([this.shortCode, 'setup']);
-      }
-    });
     this.appService.getCustomer(this.shortCode).subscribe(customer => {
       this.appService.customers[0] = customer;
+      console.log(this.appService.customers[0]);
+      if(this.appService.customers[0].appStatus.setupRequired) {
+        this.router.navigate([this.appService.customers[0].shortCode,'setup'])
+      }
     })
   }
 

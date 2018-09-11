@@ -1,5 +1,7 @@
+import {AppStatusModel} from './appStatus.model';
+
 export class CustomerModel {
-  constructor(public id: Number, name: string, public contactEmail: string, public shortCode: string, public type: Type, public country: Country, public timeZone: number, public logoUrl: string, public privacyPolicyUrl: string, public active: boolean, public createdOn: Date, public updatedOn: Date) {
+  constructor(public id: Number, name: string, public contactEmail: string, public shortCode: string, public type: Type, public country: Country, public timeZone: number, public logoUrl: string, public privacyPolicyUrl: string, public active: boolean, public createdOn: Date, public updatedOn: Date, public appStatus: AppStatusModel) {
 
   }
 }
