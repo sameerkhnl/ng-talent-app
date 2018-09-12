@@ -25,5 +25,4 @@ export class SettingsComponent implements OnInit {
       this.router.navigate([this.appService.customers[0].shortCode, 'home']);
     }, error1 => console.log("error updating customer, try again."));
   }
-
 }

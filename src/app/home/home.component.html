@@ -1,3 +1,6 @@
 <p class="h2">
   Welcome to the Test Talent App
 </p>
+<p *ngIf="!connectedToAppServer" class="text-danger">
+  There was a problem connecting to the app server. Cannot fetch tenant info.
+</p>

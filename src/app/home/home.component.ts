@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   route: ActivatedRouteSnapshot;
   appStatus: AppStatusModel;
   shortCode: string;
+  connectedToAppServer = false;
 
   constructor(private activatedRoute: ActivatedRoute, private appService: AppService, private router: Router) {
     this.route = activatedRoute.snapshot;
@@ -22,11 +23,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.appService.getCustomer(this.shortCode).subscribe(customer => {
+      this.connectedToAppServer = true;
       this.appService.customers[0] = customer;
       console.log(this.appService.customers[0]);
       if(this.appService.customers[0].appStatus.setupRequired) {
         this.router.navigate([this.appService.customers[0].shortCode,'setup'])
       }
+    }, error1 => {
+      this.connectedToAppServer = false;
     })
   }
 
